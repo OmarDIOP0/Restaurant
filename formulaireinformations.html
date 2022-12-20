@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Restaurant | La Corniche</title>
+    
+ <style>
+    body
+{
+    background:url(foto3.jpg) no-repeat;
+    background-size: cover;
+    color: white;
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+#form
+{
+position: absolute;
+top: 25%;
+left: 36%;
+width: 350px;
+height: 410px;
+box-sizing: border-box;
+background-color: rgba(0,0,0,0.5);
+padding: 10px;
+border-radius: 55px;
+border: 2px solid chocolate;
+text-align: center;
+
+
+}
+#form:hover
+{
+    background: rgba(rgb(202, 99, 26),0,0,0.5)
+}
+#legend
+
+{
+    margin: 0px;
+    padding: 0 0 20px;
+    text-align: center;
+    font-weight: bold;
+}
+#form p
+{
+    margin: 0;
+    padding: 0;
+    font-weight: bold;
+  
+}
+#form input[type=text]
+{
+    margin-bottom: 10px;
+    width: 200px;
+border: none;
+background-color: transparent;
+border-bottom: 1px solid white;
+outline: none;
+display: 16px;
+color: white;
+text-align: left;
+padding-left: 45px;
+}
+#form select
+{
+width: 150px;
+padding-left: 50px;
+margin-bottom: 20px;
+left: 50px;
+
+}
+#form input[type=radio]
+{
+    width: 30px;
+    
+}
+#form input[type=submit], input[type=reset]
+{
+    height:40px;
+    border: none;
+    outline: none;
+    font-size: 15px;
+    cursor: pointer;
+    text-align: left;
+    background-color: chocolate;
+    border-radius: 10px;
+}
+#options
+{
+
+  width: 500px;
+  padding-left: 380px;
+  background-color: chocolate;
+}
+ul{
+  list-style-type: none;
+  margin: 0;
+  padding: O;
+  padding-top: 0px;
+
+}
+li
+{
+  float: left;
+  width: 130px;
+  text-align: center;
+  font-size: 20px;
+  margin: 12px auto;
+  padding-top:10px;
+  
+}
+li a
+{
+  color: white;
+  padding: 20px;
+
+  text-decoration: none;
+}
+   li a:hover
+   {
+     background-color: chocolate;
+   }
+   #F
+   {
+      
+       padding-top: 120px;
+   }
+
+  select {
+    width: 80px;
+  }
+
+</style>
+    
+</head>
+<body>
+
+          <div id="options">
+          <ul>
+          <li><a href="restaurant1.html">Accueil</a></li>
+          <li><a href="menu.html">Menu</a></li>
+          <li><a href="formulaireinformations.html">Commander</a></li>
+          </ul>
+          </div>
+
+ 
+ 
+          <div id="form">
+              <h2 id="legend"> Informations personnelles</h2>
+          <form name="form1" action="formulairemenu.html" id="form1" onsubmit="result()">
+
+
+<p>Nom :</p>
+<input type="text" name="nom" id="nom" required/> 
+<p>Prénom :</p>
+<input type="text" name="prenom" id="prenom" required/>
+
+<p>Sexe:</p>
+<input type="radio" name="civil" value="Femme" id="choix1" required /> Femme
+<input type="radio" name="civil" value="Homme" id="choix2" /> Homme
+
+<p>Age :</p>
+<select name="age" id="age" required>
+<option value="" selected disabled></option>
+</select><br><br>
+
+<input type="submit" value="Commander">
+
+</form>
+</div>
+
+
+
+
+<script text="javascript">
+  for (i = 5; i <101 ; i++) {
+  var opt = document.createElement("option");
+  
+    document.getElementById("age").innerHTML += '<option id="' + i + '">' + i + ' ans</option>';
+}
+  function result (){
+    var nom=document.getElementById('nom').value;
+    sessionStorage.setItem('Nom',nom);
+    sessionStorage.getItem('Nom');
+
+    var prenom=document.getElementById('prenom').value;
+    sessionStorage.setItem('Prenom',prenom);
+    sessionStorage.getItem('Prenom');
+
+    var age=document.getElementById('age').value;
+    sessionStorage.setItem('Age',age);
+    sessionStorage.getItem('Age');
+
+    
+
+    var sexe;
+if (document.getElementById('choix1').checked) {
+ sexe = document.getElementById('choix1').value;
+}
+if (document.getElementById('choix2').checked) {
+ sexe = document.getElementById('choix2').value;
+}
+   sessionStorage.setItem("Sexe", sexe);
+   sessionStorage.getItem('Sexe');
+
+  
+}
+
+   
+    </script>
+    
+    </body>
+    </html>

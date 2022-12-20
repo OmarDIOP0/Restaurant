@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Facture commande</title>
+    
+ <style>
+    body
+{
+    background:url(foto3.jpg) no-repeat;
+    background-size: cover;
+    color: white;
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+#add
+{
+position: absolute;
+top: 27%;
+left: 38%;
+width: 350px;
+height: 430px;
+box-sizing: border-box;
+background-color: rgba(0,0,0,0.5);
+padding: 10px;
+border-radius: 55px;
+border: 2px solid chocolate;
+text-align: center;
+}
+#options
+{
+
+  width: 500px;
+  padding-left: 380px;
+  background-color: chocolate;
+}
+ul{
+  list-style-type: none;
+  margin: 0;
+  padding: O;
+  padding-top: 0px;
+
+}
+li
+{
+  float: left;
+  width: 130px;
+  text-align: center;
+  font-size: 20px;
+  margin: 12px auto;
+  padding-top:10px;
+  
+}
+li a
+{
+  color: white;
+  padding: 20px;
+
+  text-decoration: none;
+}
+   li a:hover
+   {
+     background-color: chocolate;
+   }
+   #F
+   {
+      
+       padding-top: 120px;
+   }
+
+  select {
+    width: 80px;
+  }
+#total
+{
+    border-radius: 12px;
+    border: 1px solid chocolate;
+}
+</style>
+    
+</head>
+<body>
+
+          <div id="options">
+          <ul>
+          <li><a href="restaurant1.html">Accueil</a></li>
+          <li><a href="menu.html">Menu</a></li>
+          <li><a href="formulaireinformations.html">Commander</a></li>
+          </ul>
+          </div>
+
+          <div id="add">
+            <h2 style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">La Corniche</h2>
+            <h3>Votre facture</h3>
+            <p id="nom"></p>
+            <p id="prenom"></p>
+            <p id="sexe"></p>
+            <p id="age"></p>
+            <p id="entree"></p>
+            <p id="resistance"></p>
+            <p id="dessert"></p>
+
+            <p id="total"></p>
+            
+          </div>
+
+
+
+          <script>
+              document.getElementById("nom").innerHTML = "Nom : " +sessionStorage.getItem('Nom');
+              document.getElementById("prenom").innerHTML = "Prenom : " +sessionStorage.getItem('Prenom');
+              document.getElementById("sexe").innerHTML = "Sexe : " +sessionStorage.getItem('Sexe');
+              document.getElementById("age").innerHTML = "Age : " +sessionStorage.getItem('Age');
+              document.getElementById("entree").innerHTML = "Entrée : " +sessionStorage.getItem('Entree');
+              document.getElementById("resistance").innerHTML = "Plat de resistance : " +sessionStorage.getItem('Resistance');
+              document.getElementById("dessert").innerHTML = "Dessert : " +sessionStorage.getItem('Dessert');
+
+              var prixEntree=0;
+              var prixDessert=0;
+              var prixResistance=0;
+
+              if(sessionStorage.getItem('Entree')!=''){
+                  
+                prixEntree=sessionStorage.getItem('PrixEntree');
+              }
+
+              if(sessionStorage.getItem('Dessert')!=''){
+                  
+                prixDessert=sessionStorage.getItem('PrixDessert');
+              }
+
+              if(sessionStorage.getItem('Resistance')!=''){
+                prixResistance=sessionStorage.getItem('PrixResistance');
+              }
+
+              var total=Number(prixEntree)+Number(prixResistance)+Number(prixDessert);
+
+              document.getElementById("total").innerHTML = "Total : " +total+"F CFA";
+          </script>
+          </body>
+          </html>
